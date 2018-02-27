@@ -1,9 +1,5 @@
 package com.example.demo.interfaces.view;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.example.demo.service.TopicService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/web/")
 public class TopicController {
     @Autowired TopicService topicService;
 
@@ -23,7 +20,7 @@ public class TopicController {
     }
 
     @RequestMapping("/{id}")
-    public String list(Model model,@PathVariable final int id){
+    public String list(Model model,@PathVariable final Long id){
         model.addAttribute("t", topicService.get(id));
         return "topic/detail";
     }

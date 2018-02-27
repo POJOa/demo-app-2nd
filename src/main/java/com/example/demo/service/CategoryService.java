@@ -1,24 +1,24 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.topic.Topic;
-import com.example.demo.domain.topic.TopicRepo;
+import com.example.demo.domain.category.Category;
+import com.example.demo.domain.category.CategoryRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TopicService {
-    @Autowired TopicRepo repo;
+public class CategoryService {
+    @Autowired CategoryRepo repo;
 
-    public Topic get(Long id){
+    public Category get(Long id){
         return repo.findById(id).orElse(null);
     }
 
-    public Iterable<Topic> findAll(){
+    public Iterable<Category> findAll(){
         return repo.findAll();
     }
 
-    public Topic save(Topic t){return repo.save(t);}
+    public Category save(Category c){return repo.save(c);}
 
     public void delete(Long id){repo.deleteById(id);}
 }
